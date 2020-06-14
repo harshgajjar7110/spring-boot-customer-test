@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+<a th:href="customer">Add Customer</a>
+<div th:switch="${customers}">
+    <h2 th:case="null">No customer yet!</h2>
+    <div th:case="*">
+        <h2>Customers</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Number</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="user : ${customers}">
+
+                <td width="10" th:utext="${user.name}"></td>
+                <td th:utext="${user.mail}"></td>
+                <td th:utext="${user.number}"></td>
+                <td th:utext="${user.gender}"></td>
+                <td
+                        th:utext="${user.addressLine1} + ' ' + ${user.addressLine2}  "></td>
+                <td th:utext="${user.city} "></td>
+                <td th:utext="${user.state} "></td>
+                <td th:utext="${user.country}  "></td>
+                <td><a class="m-2 btn btn-success" th:href="@{customer/{user.id}(user.id=${user.id})}"
+                >Edit</a>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

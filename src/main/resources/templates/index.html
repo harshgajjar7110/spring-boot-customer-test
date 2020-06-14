@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+<h1>Customer Form</h1>
+<form class="form col-md-4" th:object="${customer}" th:action="@{/customer/{id}(id=${id})}" method="post">
+
+
+    <div>Name: <input type="text" class="form-control" th:field="*{name}"/></div>
+    <div>Gender:<select class="form-control" th:field="*{gender}">
+        <option th:value="'Male'" th:text="Male"></option>
+        <option th:value="'Female'" th:text="Female"></option>
+    </select></div>
+    <div>Mail: <input type="text" class="form-control" th:field="*{mail}"/></div>
+    <div>Number: <input type="number" class="form-control" th:field="*{number}"/></div>
+    <div>AddressLine1: <input type="text" class="form-control" th:field="*{addressLine1}"/></div>
+    <div>AddressLine2: <input type="text" class="form-control" th:field="*{addressLine2}"/></div>
+    <div>State: <input type="text" class="form-control" th:field="*{state}"/></div>
+    <div>City: <input type="text" class="form-control" th:field="*{city}"/></div>
+    <div>ZipCode: <input type="number" class="form-control" th:field="*{zipCode}"/></div>
+
+    <div>Country: <input type="text" class="form-control" th:field="*{country}"/></div>
+
+    <div>
+        <button class="m-2 btn btn-success" type="submit" value="Submit">Submit</button>
+
+    </div>
+    <a th:href="${id} == null  ? './index' : '../index'">Back to List</a>
+
+</form>
+
+</body>
+</html>
