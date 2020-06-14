@@ -1,5 +1,5 @@
 # spring-boot-customer-test
-- spring boot crud example with thymeleaf engine
+- spring boot crud example with thymeleaf engine and Mysql
 - read application.properties for database releated information
  
     ####   Api 
